@@ -1,0 +1,1049 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Natalia Cruz | Host & Moderadora Digital</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --rose: #C8849A;
+    --rose-light: #E8B4C4;
+    --rose-pale: #F5DDE6;
+    --lavender: #9B7BB8;
+    --lavender-light: #C4A8D8;
+    --mint: #7CB8A8;
+    --dark: #1A1218;
+    --dark-2: #2C1E28;
+    --cream: #FBF5F0;
+    --white: #FFFFFF;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--dark);
+    color: var(--cream);
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    padding: 20px 60px;
+    display: flex; justify-content: space-between; align-items: center;
+    background: linear-gradient(to bottom, rgba(26,18,24,0.95), transparent);
+    backdrop-filter: blur(8px);
+  }
+  .nav-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem; font-style: italic;
+    color: var(--rose-light);
+    letter-spacing: 1px;
+  }
+  .nav-links { display: flex; gap: 36px; list-style: none; }
+  .nav-links a {
+    font-size: 0.85rem; font-weight: 500; letter-spacing: 1.5px;
+    text-transform: uppercase; color: rgba(251,245,240,0.7);
+    text-decoration: none; transition: color 0.3s;
+  }
+  .nav-links a:hover { color: var(--rose-light); }
+  .nav-cta {
+    background: var(--rose); color: var(--white) !important;
+    padding: 10px 22px; border-radius: 50px;
+    transition: background 0.3s, transform 0.2s !important;
+  }
+  .nav-cta:hover { background: var(--lavender) !important; transform: translateY(-1px); }
+
+  /* ── HERO ── */
+  #hero {
+    min-height: 100vh;
+    display: grid; grid-template-columns: 1fr 1fr;
+    align-items: center; position: relative; overflow: hidden;
+    padding: 0 60px;
+  }
+  .hero-bg {
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse at 70% 50%, rgba(155,123,184,0.25) 0%, transparent 60%),
+                radial-gradient(ellipse at 20% 80%, rgba(200,132,154,0.2) 0%, transparent 50%);
+  }
+  .hero-grid-lines {
+    position: absolute; inset: 0; opacity: 0.04;
+    background-image: linear-gradient(var(--rose) 1px, transparent 1px),
+                      linear-gradient(90deg, var(--rose) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+  .hero-left { position: relative; z-index: 2; padding-top: 80px; }
+  .hero-tag {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(200,132,154,0.15); border: 1px solid rgba(200,132,154,0.3);
+    color: var(--rose-light); padding: 6px 16px; border-radius: 50px;
+    font-size: 0.78rem; font-weight: 500; letter-spacing: 1.5px;
+    text-transform: uppercase; margin-bottom: 28px;
+    animation: fadeUp 0.8s ease both;
+  }
+  .hero-tag::before { content: '✦'; font-size: 0.7rem; }
+  .hero-name {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(3rem, 5vw, 5.5rem);
+    font-weight: 900; line-height: 1.05;
+    animation: fadeUp 0.8s 0.1s ease both;
+  }
+  .hero-name span { color: var(--rose); font-style: italic; display: block; }
+  .hero-subtitle {
+    font-size: 1.1rem; font-weight: 300; color: rgba(251,245,240,0.65);
+    margin: 24px 0 40px; line-height: 1.7; max-width: 480px;
+    animation: fadeUp 0.8s 0.2s ease both;
+  }
+  .hero-subtitle strong { color: var(--rose-light); font-weight: 600; }
+  .hero-btns { display: flex; gap: 16px; animation: fadeUp 0.8s 0.3s ease both; }
+  .btn-primary {
+    background: linear-gradient(135deg, var(--rose), var(--lavender));
+    color: var(--white); padding: 16px 36px; border-radius: 50px;
+    font-size: 0.95rem; font-weight: 600; text-decoration: none;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 8px 30px rgba(200,132,154,0.4);
+  }
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 40px rgba(200,132,154,0.5); }
+  .btn-secondary {
+    border: 1.5px solid rgba(200,132,154,0.5); color: var(--rose-light);
+    padding: 16px 36px; border-radius: 50px; font-size: 0.95rem; font-weight: 500;
+    text-decoration: none; transition: all 0.3s;
+  }
+  .btn-secondary:hover { background: rgba(200,132,154,0.1); border-color: var(--rose-light); }
+
+  .hero-right {
+    position: relative; z-index: 2; display: flex;
+    justify-content: center; align-items: center; padding-top: 80px;
+  }
+  .hero-img-wrap {
+    position: relative; width: 380px; height: 480px;
+    animation: fadeUp 0.8s 0.4s ease both;
+  }
+  .hero-img-blob {
+    position: absolute; inset: 0;
+    background: linear-gradient(135deg, var(--rose) 0%, var(--lavender) 100%);
+    border-radius: 60% 40% 55% 45% / 50% 55% 45% 50%;
+    opacity: 0.3;
+  }
+  .hero-img-frame {
+    position: absolute; inset: 20px;
+    border-radius: 50% 38% 50% 38% / 45% 50% 45% 50%;
+    overflow: hidden;
+    border: 2px solid rgba(200,132,154,0.4);
+    background: linear-gradient(180deg, var(--dark-2) 0%, rgba(44,30,40,0.5) 100%);
+    display: flex; align-items: flex-end; justify-content: center;
+  }
+  .hero-img-placeholder {
+    width: 100%; height: 100%;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 5rem; opacity: 0.3;
+  }
+  .hero-float-card {
+    position: absolute; background: rgba(44,30,40,0.85);
+    backdrop-filter: blur(12px); border: 1px solid rgba(200,132,154,0.2);
+    border-radius: 16px; padding: 14px 20px;
+    animation: float 4s ease-in-out infinite;
+  }
+  .hero-float-card:nth-child(3) { bottom: 40px; left: -40px; animation-delay: 0s; }
+  .hero-float-card:nth-child(4) { top: 60px; right: -30px; animation-delay: 2s; }
+  .float-card-label { font-size: 0.7rem; color: var(--rose-light); letter-spacing: 1px; text-transform: uppercase; }
+  .float-card-value { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 700; }
+  .float-card-sub { font-size: 0.72rem; color: rgba(251,245,240,0.5); }
+
+  /* ── STATS STRIP ── */
+  .stats-strip {
+    background: linear-gradient(135deg, var(--rose) 0%, var(--lavender) 100%);
+    padding: 36px 60px;
+    display: flex; justify-content: space-around; align-items: center;
+  }
+  .stat-item { text-align: center; }
+  .stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem; font-weight: 900; color: var(--white);
+  }
+  .stat-label { font-size: 0.8rem; color: rgba(255,255,255,0.75); letter-spacing: 1.5px; text-transform: uppercase; margin-top: 4px; }
+  .stat-div { width: 1px; height: 50px; background: rgba(255,255,255,0.25); }
+
+  /* ── SECTION BASE ── */
+  section { padding: 100px 60px; }
+  .section-tag {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-size: 0.78rem; font-weight: 600; letter-spacing: 2px;
+    text-transform: uppercase; color: var(--rose);
+    margin-bottom: 16px;
+  }
+  .section-tag::before { content: ''; width: 24px; height: 2px; background: var(--rose); }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 3.5vw, 3rem);
+    font-weight: 900; line-height: 1.15; margin-bottom: 20px;
+  }
+  .section-title em { color: var(--rose); font-style: italic; }
+
+  /* ── ABOUT ── */
+  #about {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;
+    background: var(--dark-2);
+  }
+  .about-visual {
+    position: relative; height: 500px;
+    border-radius: 40px; overflow: hidden;
+    background: linear-gradient(180deg, rgba(200,132,154,0.1) 0%, rgba(155,123,184,0.15) 100%);
+    border: 1px solid rgba(200,132,154,0.15);
+    display: flex; align-items: center; justify-content: center;
+  }
+  .about-initials {
+    font-family: 'Playfair Display', serif;
+    font-size: 8rem; font-weight: 900; font-style: italic;
+    color: rgba(200,132,154,0.15); user-select: none;
+  }
+  .about-badge {
+    position: absolute; bottom: 30px; left: 30px;
+    background: linear-gradient(135deg, var(--rose), var(--lavender));
+    border-radius: 20px; padding: 20px 28px;
+  }
+  .badge-title { font-size: 0.72rem; color: rgba(255,255,255,0.8); letter-spacing: 1px; text-transform: uppercase; }
+  .badge-value { font-family: 'Playfair Display', serif; font-size: 1.2rem; font-weight: 700; color: white; margin-top: 4px; }
+  .about-text { color: rgba(251,245,240,0.7); line-height: 1.8; font-size: 1.05rem; margin: 24px 0 36px; }
+  .about-text strong { color: var(--rose-light); font-weight: 600; }
+  .about-pills { display: flex; flex-wrap: wrap; gap: 10px; }
+  .pill {
+    background: rgba(200,132,154,0.12); border: 1px solid rgba(200,132,154,0.25);
+    color: var(--rose-light); padding: 8px 18px; border-radius: 50px;
+    font-size: 0.82rem; font-weight: 500;
+    transition: background 0.3s;
+  }
+  .pill:hover { background: rgba(200,132,154,0.25); }
+
+  /* ── SERVICES ── */
+  #services { background: var(--dark); }
+  .services-header { text-align: center; max-width: 600px; margin: 0 auto 60px; }
+  .services-header .section-tag { justify-content: center; }
+  .services-header .section-tag::before { display: none; }
+  .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .service-card {
+    background: var(--dark-2); border-radius: 28px; padding: 40px 32px;
+    border: 1px solid rgba(200,132,154,0.1);
+    transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
+    position: relative; overflow: hidden;
+  }
+  .service-card::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+    background: linear-gradient(90deg, var(--rose), var(--lavender));
+    transform: scaleX(0); transition: transform 0.3s;
+  }
+  .service-card:hover { transform: translateY(-6px); border-color: rgba(200,132,154,0.3); box-shadow: 0 20px 60px rgba(0,0,0,0.3); }
+  .service-card:hover::before { transform: scaleX(1); }
+  .service-icon {
+    width: 56px; height: 56px; border-radius: 16px;
+    background: linear-gradient(135deg, rgba(200,132,154,0.2), rgba(155,123,184,0.2));
+    border: 1px solid rgba(200,132,154,0.2);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.6rem; margin-bottom: 24px;
+  }
+  .service-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem; font-weight: 700; margin-bottom: 12px;
+  }
+  .service-desc { color: rgba(251,245,240,0.55); font-size: 0.9rem; line-height: 1.7; margin-bottom: 24px; }
+  .service-features { list-style: none; }
+  .service-features li {
+    font-size: 0.82rem; color: rgba(251,245,240,0.6);
+    padding: 6px 0; border-bottom: 1px solid rgba(255,255,255,0.05);
+    display: flex; align-items: center; gap: 8px;
+  }
+  .service-features li::before { content: '✦'; color: var(--rose); font-size: 0.6rem; flex-shrink: 0; }
+
+  /* ── PORTFOLIO ── */
+  #portfolio { background: var(--dark-2); }
+  .portfolio-header { margin-bottom: 48px; }
+  .portfolio-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .portfolio-item {
+    border-radius: 20px; overflow: hidden;
+    background: var(--dark-2);
+    border: 1px solid rgba(200,132,154,0.15);
+    position: relative;
+    transition: transform 0.3s, box-shadow 0.3s;
+    display: flex; flex-direction: column;
+  }
+  .portfolio-item:hover { transform: translateY(-4px); box-shadow: 0 20px 50px rgba(0,0,0,0.4); border-color: rgba(200,132,154,0.35); }
+  .port-video-wrap {
+    position: relative; aspect-ratio: 9/16; background: #0a0608; overflow: hidden;
+  }
+  .port-video-wrap video {
+    width: 100%; height: 100%; object-fit: cover; display: block;
+    cursor: pointer;
+  }
+  .port-play-btn {
+    position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
+    background: rgba(26,18,24,0.4); transition: opacity 0.3s; pointer-events: none;
+  }
+  .port-play-btn svg { width: 52px; height: 52px; filter: drop-shadow(0 4px 12px rgba(0,0,0,0.5)); }
+  .port-video-wrap.playing .port-play-btn { opacity: 0; }
+  .port-info { padding: 16px 20px 20px; }
+  .port-tag { font-size: 0.68rem; color: var(--rose-light); letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 5px; }
+  .port-title { font-family: 'Playfair Display', serif; font-size: 0.95rem; font-weight: 700; line-height: 1.3; }
+
+  /* ── PROCESS ── */
+  #process { background: var(--dark); }
+  .process-steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px; margin-top: 60px; }
+  .process-step { position: relative; }
+  .step-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 4rem; font-weight: 900; font-style: italic;
+    color: rgba(200,132,154,0.12); line-height: 1; margin-bottom: 16px;
+  }
+  .step-title { font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 700; margin-bottom: 10px; }
+  .step-desc { color: rgba(251,245,240,0.55); font-size: 0.88rem; line-height: 1.7; }
+  .step-line {
+    position: absolute; top: 32px; left: 80px; right: -16px; height: 1px;
+    background: linear-gradient(90deg, rgba(200,132,154,0.4), transparent);
+  }
+  .process-step:last-child .step-line { display: none; }
+
+  /* ── CTA / CONTACT ── */
+  #contact {
+    background: linear-gradient(135deg, var(--dark-2) 0%, var(--dark) 100%);
+    text-align: center; position: relative; overflow: hidden;
+  }
+  #contact::before {
+    content: ''; position: absolute; inset: 0;
+    background: radial-gradient(ellipse at 50% 0%, rgba(200,132,154,0.15) 0%, transparent 70%);
+  }
+  .contact-inner { position: relative; z-index: 1; max-width: 700px; margin: 0 auto; }
+  .contact-quote {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 4vw, 3.5rem); font-style: italic;
+    font-weight: 700; line-height: 1.2; margin: 20px 0 16px;
+  }
+  .contact-sub { color: rgba(251,245,240,0.6); font-size: 1rem; margin-bottom: 48px; line-height: 1.7; }
+  .contact-cards { display: flex; gap: 20px; justify-content: center; margin-bottom: 48px; flex-wrap: wrap; }
+  .contact-card {
+    background: rgba(44,30,40,0.8); border: 1px solid rgba(200,132,154,0.2);
+    border-radius: 20px; padding: 24px 32px; min-width: 200px;
+    transition: border-color 0.3s, transform 0.2s;
+  }
+  .contact-card:hover { border-color: var(--rose); transform: translateY(-3px); }
+  .contact-card-icon { font-size: 1.8rem; margin-bottom: 10px; }
+  .contact-card-label { font-size: 0.72rem; color: var(--rose-light); letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 6px; }
+  .contact-card-value { font-weight: 600; font-size: 1rem; }
+  .contact-card-value a { color: var(--cream); text-decoration: none; }
+  .wa-btn {
+    display: inline-flex; align-items: center; gap: 12px;
+    background: #25D366; color: white;
+    padding: 18px 40px; border-radius: 50px; font-size: 1rem; font-weight: 600;
+    text-decoration: none; transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 8px 30px rgba(37,211,102,0.35);
+  }
+  .wa-btn:hover { transform: translateY(-2px); box-shadow: 0 12px 40px rgba(37,211,102,0.45); }
+  .wa-btn svg { width: 22px; height: 22px; }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--dark); border-top: 1px solid rgba(200,132,154,0.1);
+    padding: 32px 60px;
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  .footer-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem; font-style: italic; color: var(--rose-light);
+  }
+  .footer-copy { font-size: 0.8rem; color: rgba(251,245,240,0.35); }
+  .footer-heart { color: var(--rose); }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+
+  /* Scroll reveal */
+  .reveal {
+    opacity: 0; transform: translateY(32px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+  .reveal-delay-1 { transition-delay: 0.1s; }
+  .reveal-delay-2 { transition-delay: 0.2s; }
+  .reveal-delay-3 { transition-delay: 0.3s; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    nav { padding: 16px 24px; }
+    .nav-links { display: none; }
+    #hero { grid-template-columns: 1fr; padding: 120px 24px 60px; text-align: center; }
+    .hero-right { display: none; }
+    .hero-btns { justify-content: center; }
+    section { padding: 70px 24px; }
+    #about { grid-template-columns: 1fr; gap: 40px; }
+    .about-visual { height: 300px; }
+    .services-grid { grid-template-columns: 1fr; }
+    .portfolio-grid { grid-template-columns: repeat(2, 1fr); }
+    .process-steps { grid-template-columns: repeat(2, 1fr); }
+    .step-line { display: none; }
+    .stats-strip { padding: 28px 24px; flex-wrap: wrap; gap: 28px; }
+    .contact-cards { flex-direction: column; align-items: center; }
+    footer { flex-direction: column; gap: 12px; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">Natalia Cruz</div>
+  <ul class="nav-links">
+    <li><a href="#about">Sobre mí</a></li>
+    <li><a href="#services">Servicios</a></li>
+    <li><a href="#portfolio">Portafolio</a></li>
+    <li><a href="#contact" class="nav-cta">¡Contáctame!</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid-lines"></div>
+  <div class="hero-left">
+    <div class="hero-tag">Host & Moderadora Digital</div>
+    <h1 class="hero-name">
+      Hola, soy<br>
+      <span>Natalia Cruz</span>
+    </h1>
+    <p class="hero-subtitle">
+      Convierto tu <strong>presencia digital</strong> en resultados reales.<br>
+      Contenido estratégico, audiencias segmentadas y una voz que <strong>vende</strong>.
+    </p>
+    <div class="hero-btns">
+      <a href="#services" class="btn-primary">Ver mis servicios</a>
+      <a href="#contact" class="btn-secondary">Hablemos</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-img-wrap">
+      <div class="hero-img-blob"></div>
+      <div class="hero-img-frame">
+        <div class="hero-img-placeholder">✦</div>
+      </div>
+      <div class="hero-float-card">
+        <div class="float-card-label">Especialidad</div>
+        <div class="float-card-value">Host</div>
+        <div class="float-card-sub">Contenidos Digitales</div>
+      </div>
+      <div class="hero-float-card">
+        <div class="float-card-label">Enfoque</div>
+        <div class="float-card-value">100%</div>
+        <div class="float-card-sub">Orientada a ventas</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats-strip">
+  <div class="stat-item">
+    <div class="stat-num">100%</div>
+    <div class="stat-label">Compromiso</div>
+  </div>
+  <div class="stat-div"></div>
+  <div class="stat-item">
+    <div class="stat-num">+5</div>
+    <div class="stat-label">Marcas trabajadas</div>
+  </div>
+  <div class="stat-div"></div>
+  <div class="stat-item">
+    <div class="stat-num">360°</div>
+    <div class="stat-label">Gestión digital</div>
+  </div>
+  <div class="stat-div"></div>
+  <div class="stat-item">
+    <div class="stat-num">∞</div>
+    <div class="stat-label">Creatividad</div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-visual reveal">
+    <div class="about-initials">NC</div>
+    <div class="about-badge">
+      <div class="badge-title">Marketing Digital</div>
+      <div class="badge-value">En formación activa</div>
+    </div>
+  </div>
+  <div>
+    <div class="section-tag reveal">Sobre mí</div>
+    <h2 class="section-title reveal">Soy la voz que<br>tu marca <em>necesita</em></h2>
+    <p class="about-text reveal">
+      Soy profesional en formación en <strong>marketing digital</strong>, enfocada en la creación de contenido estratégico y gestión de redes sociales orientadas a <strong>ventas</strong>. Con experiencia desarrollando piezas <strong>audiovisuales</strong>, segmentando audiencias y creando páginas enfocadas en conversión.
+    </p>
+    <p class="about-text reveal">
+      Mi objetivo es ayudar a <strong>marcas y emprendedores</strong> a convertir su presencia digital en resultados reales.
+    </p>
+    <div class="about-pills reveal">
+      <span class="pill">Contenido Estratégico</span>
+      <span class="pill">Redes Sociales</span>
+      <span class="pill">Segmentación</span>
+      <span class="pill">Piezas Audiovisuales</span>
+      <span class="pill">Campañas Comerciales</span>
+      <span class="pill">Medios de Comunicación</span>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="services-header">
+    <div class="section-tag">Servicios</div>
+    <h2 class="section-title">¿Qué puedo hacer<br>por tu <em>marca</em>?</h2>
+  </div>
+  <div class="services-grid">
+    <div class="service-card reveal">
+      <div class="service-icon">🎙️</div>
+      <div class="service-name">Host de Contenidos</div>
+      <div class="service-desc">Soy la cara y voz de tu marca en videos, lives y campañas. Comunicación auténtica que conecta con tu audiencia.</div>
+      <ul class="service-features">
+        <li>Presentación de productos</li>
+        <li>Lives de ventas en redes</li>
+        <li>Videos corporativos</li>
+        <li>Entrevistas y medios</li>
+      </ul>
+    </div>
+    <div class="service-card reveal reveal-delay-1">
+      <div class="service-icon">📱</div>
+      <div class="service-name">Moderación Digital</div>
+      <div class="service-desc">Gestiono tu comunidad en redes sociales, manteniendo una conversación activa y orientada a resultados.</div>
+      <ul class="service-features">
+        <li>Gestión de comentarios</li>
+        <li>Moderación de comunidades</li>
+        <li>Atención al cliente digital</li>
+        <li>Estrategia de respuesta</li>
+      </ul>
+    </div>
+    <div class="service-card reveal reveal-delay-2">
+      <div class="service-icon">🎬</div>
+      <div class="service-name">Creación de Contenido</div>
+      <div class="service-desc">Desarrollo piezas audiovisuales estratégicas para campañas comerciales con enfoque en conversión y ventas.</div>
+      <ul class="service-features">
+        <li>Videos para redes sociales</li>
+        <li>Piezas para campañas</li>
+        <li>Contenido de producto</li>
+        <li>Segmentación por audiencia</li>
+      </ul>
+    </div>
+    <div class="service-card reveal">
+      <div class="service-icon">📊</div>
+      <div class="service-name">Estrategia Digital</div>
+      <div class="service-desc">Implemento estrategias de segmentación por producto para que tu contenido llegue a quien debe llegar.</div>
+      <ul class="service-features">
+        <li>Análisis de audiencia</li>
+        <li>Segmentación por producto</li>
+        <li>Páginas de conversión</li>
+        <li>Embudo de ventas</li>
+      </ul>
+    </div>
+    <div class="service-card reveal reveal-delay-1">
+      <div class="service-icon">🌐</div>
+      <div class="service-name">Representación de Marca</div>
+      <div class="service-desc">Comunico y represento tu marca con profesionalismo en cualquier plataforma o medio de comunicación.</div>
+      <ul class="service-features">
+        <li>Brand ambassador</li>
+        <li>Participación en medios</li>
+        <li>Imagen de marca consistente</li>
+        <li>Storytelling de marca</li>
+      </ul>
+    </div>
+    <div class="service-card reveal reveal-delay-2" style="background: linear-gradient(135deg, rgba(200,132,154,0.15), rgba(155,123,184,0.15)); border-color: rgba(200,132,154,0.3);">
+      <div class="service-icon">✨</div>
+      <div class="service-name">Paquete Completo</div>
+      <div class="service-desc">¿Quieres todo? Diseñamos juntos una estrategia personalizada que cubra todas tus necesidades digitales.</div>
+      <ul class="service-features">
+        <li>Host + Moderación</li>
+        <li>Contenido + Estrategia</li>
+        <li>Plan personalizado</li>
+        <li>Resultados medibles</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- PORTFOLIO -->
+<section id="portfolio">
+  <div class="portfolio-header">
+    <div class="section-tag reveal">Portafolio</div>
+    <h2 class="section-title reveal">Mira mi trabajo<br><em>en acción</em></h2>
+  </div>
+  <div class="portfolio-grid">
+
+    <div class="portfolio-item reveal">
+      <div class="port-video-wrap" onclick="toggleVideo(this)">
+        <video src="video1.mp4" loop playsinline preload="metadata"></video>
+        <div class="port-play-btn">
+          <svg viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="30" cy="30" r="29" stroke="white" stroke-width="1.5" fill="rgba(200,132,154,0.3)"/>
+            <polygon points="24,18 44,30 24,42" fill="white"/>
+          </svg>
+        </div>
+      </div>
+      <div class="port-info">
+        <div class="port-tag">Contenido Comercial</div>
+        <div class="port-title">Kit Organizadores Viajeros</div>
+      </div>
+    </div>
+
+    <div class="portfolio-item reveal reveal-delay-1">
+      <div class="port-video-wrap" onclick="toggleVideo(this)">
+        <video src="video2.mp4" loop playsinline preload="metadata"></video>
+        <div class="port-play-btn">
+          <svg viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="30" cy="30" r="29" stroke="white" stroke-width="1.5" fill="rgba(200,132,154,0.3)"/>
+            <polygon points="24,18 44,30 24,42" fill="white"/>
+          </svg>
+        </div>
+      </div>
+      <div class="port-info">
+        <div class="port-tag">Organización & E-commerce</div>
+        <div class="port-title">Ahorra Espacio con Bitked</div>
+      </div>
+    </div>
+
+    <div class="portfolio-item reveal reveal-delay-2">
+      <div class="port-video-wrap" onclick="toggleVideo(this)">
+        <video src="video3.mp4" loop playsinline preload="metadata"></video>
+        <div class="port-play-btn">
+          <svg viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="30" cy="30" r="29" stroke="white" stroke-width="1.5" fill="rgba(200,132,154,0.3)"/>
+            <polygon points="24,18 44,30 24,42" fill="white"/>
+          </svg>
+        </div>
+      </div>
+      <div class="port-info">
+        <div class="port-tag">Tendencia & Entretenimiento</div>
+        <div class="port-title">Si los Comentarios Cobraran Vida</div>
+      </div>
+    </div>
+
+    <div class="portfolio-item reveal">
+      <div class="port-video-wrap" onclick="toggleVideo(this)">
+        <video src="video4.mp4" loop playsinline preload="metadata"></video>
+        <div class="port-play-btn">
+          <svg viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="30" cy="30" r="29" stroke="white" stroke-width="1.5" fill="rgba(200,132,154,0.3)"/>
+            <polygon points="24,18 44,30 24,42" fill="white"/>
+          </svg>
+        </div>
+      </div>
+      <div class="port-info">
+        <div class="port-tag">Campaña Cocina</div>
+        <div class="port-title">Renueva tu Cocina con Menos</div>
+      </div>
+    </div>
+
+    <div class="portfolio-item reveal reveal-delay-1">
+      <div class="port-video-wrap" onclick="toggleVideo(this)">
+        <video src="video5.mp4" loop playsinline preload="metadata"></video>
+        <div class="port-play-btn">
+          <svg viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="30" cy="30" r="29" stroke="white" stroke-width="1.5" fill="rgba(200,132,154,0.3)"/>
+            <polygon points="24,18 44,30 24,42" fill="white"/>
+          </svg>
+        </div>
+      </div>
+      <div class="port-info">
+        <div class="port-tag">Humor & Entretenimiento</div>
+        <div class="port-title">Mi Jefe Manda Audio</div>
+      </div>
+    </div>
+
+    <div class="portfolio-item reveal reveal-delay-2" style="border-color:rgba(200,132,154,0.3); background: linear-gradient(180deg, rgba(200,132,154,0.08), rgba(155,123,184,0.08));">
+      <div style="height:100%; display:flex; flex-direction:column; align-items:center; justify-content:center; padding:40px 24px; text-align:center; min-height:280px;">
+        <div style="font-size:2.5rem; margin-bottom:16px;">✨</div>
+        <div class="port-tag" style="display:block; margin-bottom:10px;">¿Trabajamos juntos?</div>
+        <div class="port-title" style="font-size:1.1rem; margin-bottom:20px;">Tu marca podría ser el próximo caso de éxito</div>
+        <a href="#contact" class="btn-primary" style="padding:12px 28px; font-size:0.85rem;">¡Contáctame!</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section id="process">
+  <div class="section-tag reveal">Proceso</div>
+  <h2 class="section-title reveal">Así trabajamos<br><em>juntos</em></h2>
+  <div class="process-steps">
+    <div class="process-step reveal">
+      <div class="step-line"></div>
+      <div class="step-num">01</div>
+      <div class="step-title">Diagnóstico</div>
+      <div class="step-desc">Analizamos tu marca, audiencia y objetivos para crear una estrategia a medida.</div>
+    </div>
+    <div class="process-step reveal reveal-delay-1">
+      <div class="step-line"></div>
+      <div class="step-num">02</div>
+      <div class="step-title">Estrategia</div>
+      <div class="step-desc">Diseñamos el plan de contenido, segmentación y canales ideales para tu producto.</div>
+    </div>
+    <div class="process-step reveal reveal-delay-2">
+      <div class="step-line"></div>
+      <div class="step-num">03</div>
+      <div class="step-title">Producción</div>
+      <div class="step-desc">Creamos y grabamos el contenido con enfoque profesional y auténtico en cada pieza.</div>
+    </div>
+    <div class="process-step reveal reveal-delay-3">
+      <div class="step-num">04</div>
+      <div class="step-title">Resultados</div>
+      <div class="step-desc">Publicamos, moderamos y medimos para asegurar que tu inversión se convierta en ventas reales.</div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA / CONTACT -->
+<section id="contact">
+  <div class="contact-inner">
+    <div class="section-tag" style="justify-content:center;">¿Lista para empezar?</div>
+    <div class="contact-quote reveal">
+      "¿Qué estás esperando para potenciar tu marca?"
+    </div>
+    <p class="contact-sub reveal">
+      Hablemos hoy. Cuéntame tu idea y juntas transformamos tu presencia digital en resultados reales.
+    </p>
+    <div class="contact-cards reveal">
+      <div class="contact-card">
+        <div class="contact-card-icon">📱</div>
+        <div class="contact-card-label">WhatsApp</div>
+        <div class="contact-card-value"><a href="https://wa.me/573045378276">304 537 8276</a></div>
+      </div>
+      <div class="contact-card">
+        <div class="contact-card-icon">🎙️</div>
+        <div class="contact-card-label">Servicio</div>
+        <div class="contact-card-value">Host & Moderadora</div>
+      </div>
+      <div class="contact-card">
+        <div class="contact-card-icon">📍</div>
+        <div class="contact-card-label">Disponibilidad</div>
+        <div class="contact-card-value">Colombia & Online</div>
+      </div>
+    </div>
+    <a href="https://wa.me/573045378276?text=Hola%20Natalia%2C%20vi%20tu%20portafolio%20y%20quiero%20conocer%20tus%20servicios%20%F0%9F%8C%9F" class="wa-btn reveal" target="_blank">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      Escribirme ahora
+    </a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">Natalia Cruz</div>
+  <div class="footer-copy">© 2025 Natalia Cruz · Host & Moderadora Digital · Hecho con <span class="footer-heart">♥</span></div>
+</footer>
+
+<!-- MOTHER'S DAY POPUP -->
+<div id="mothers-popup-overlay" class="mp-overlay">
+  <div class="mp-popup">
+
+    <!-- Decorative petals -->
+    <div class="mp-petal mp-petal-1">🌸</div>
+    <div class="mp-petal mp-petal-2">🌷</div>
+    <div class="mp-petal mp-petal-3">🌹</div>
+    <div class="mp-petal mp-petal-4">🌸</div>
+    <div class="mp-petal mp-petal-5">💐</div>
+
+    <button class="mp-close" onclick="closePopup()" aria-label="Cerrar">✕</button>
+
+    <div class="mp-header">
+      <div class="mp-badge">🌷 Día de la Madre</div>
+      <h2 class="mp-title">Haz que este Día de la Madre<br><em>impulse tu negocio</em> 🌷</h2>
+      <p class="mp-subtitle">
+        Aprovecha esta temporada para conectar con más clientes, fortalecer tu marca y aumentar tus ventas con servicios diseñados para hacer crecer tu empresa.
+      </p>
+    </div>
+
+    <div class="mp-form">
+      <div class="mp-input-group">
+        <label class="mp-label">Tu número de WhatsApp</label>
+        <div class="mp-input-wrap">
+          <span class="mp-input-icon">📱</span>
+          <input type="tel" id="mp-phone" class="mp-input" placeholder="300 000 0000" autocomplete="tel" />
+        </div>
+      </div>
+
+      <a class="mp-btn" href="https://wa.me/573045378276?text=Hola%20Natalia%2C%20quiero%20impulsar%20mi%20negocio%20este%20D%C3%ADa%20de%20la%20Madre%20%F0%9F%8C%B7" target="_blank" onclick="return validatePhone()" style="text-decoration:none;">
+        <span class="mp-btn-text">Quiero impulsar mi negocio</span>
+        <span class="mp-btn-icon">→</span>
+      </a>
+
+      <p class="mp-legal">🔒 Tus datos están seguros. No spam, solo amor.</p>
+    </div>
+
+  </div>
+</div>
+
+<style>
+/* ── MOTHERS DAY POPUP ── */
+.mp-overlay {
+  position: fixed; inset: 0; z-index: 9999;
+  display: flex; align-items: center; justify-content: center;
+  background: rgba(10, 5, 10, 0.82);
+  backdrop-filter: blur(6px);
+  padding: 20px;
+  animation: mpFadeIn 0.5s ease both;
+}
+.mp-overlay.mp-hidden {
+  animation: mpFadeOut 0.4s ease both;
+  pointer-events: none;
+}
+
+.mp-popup {
+  position: relative;
+  background: linear-gradient(160deg, #2C1E28 0%, #1A1218 50%, #261520 100%);
+  border: 1px solid rgba(200,132,154,0.35);
+  border-radius: 28px;
+  padding: 44px 40px 36px;
+  max-width: 480px; width: 100%;
+  box-shadow: 0 32px 80px rgba(0,0,0,0.6), 0 0 0 1px rgba(200,132,154,0.1),
+              inset 0 1px 0 rgba(255,255,255,0.05);
+  overflow: hidden;
+  animation: mpSlideUp 0.55s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* top decorative glow */
+.mp-popup::before {
+  content: '';
+  position: absolute; top: 0; left: 50%; transform: translateX(-50%);
+  width: 280px; height: 3px;
+  background: linear-gradient(90deg, transparent, #E8B4C4, #C4A8D8, #E8B4C4, transparent);
+  border-radius: 0 0 4px 4px;
+}
+/* subtle inner glow */
+.mp-popup::after {
+  content: '';
+  position: absolute; top: -60px; left: 50%; transform: translateX(-50%);
+  width: 300px; height: 180px;
+  background: radial-gradient(ellipse, rgba(232,180,196,0.12) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+/* floating petals */
+.mp-petal {
+  position: absolute; font-size: 1.4rem;
+  pointer-events: none; user-select: none;
+  opacity: 0.55;
+  animation: mpFloat 5s ease-in-out infinite;
+}
+.mp-petal-1 { top: 12px; left: 18px; animation-delay: 0s; font-size: 1.1rem; }
+.mp-petal-2 { top: 20px; right: 55px; animation-delay: 1.2s; font-size: 1.3rem; }
+.mp-petal-3 { bottom: 90px; left: 14px; animation-delay: 2.4s; font-size: 1rem; }
+.mp-petal-4 { bottom: 60px; right: 18px; animation-delay: 0.8s; font-size: 1.2rem; }
+.mp-petal-5 { top: 50%; right: 12px; transform: translateY(-50%); animation-delay: 1.8s; font-size: 1rem; }
+
+.mp-close {
+  position: absolute; top: 16px; right: 18px;
+  background: rgba(200,132,154,0.12); border: 1px solid rgba(200,132,154,0.2);
+  color: rgba(251,245,240,0.5); width: 32px; height: 32px;
+  border-radius: 50%; cursor: pointer; font-size: 0.75rem;
+  display: flex; align-items: center; justify-content: center;
+  transition: all 0.2s; z-index: 2;
+}
+.mp-close:hover { background: rgba(200,132,154,0.25); color: var(--rose-light); transform: scale(1.1); }
+
+/* header */
+.mp-badge {
+  display: inline-flex; align-items: center; gap: 6px;
+  background: linear-gradient(135deg, rgba(200,132,154,0.2), rgba(196,168,216,0.2));
+  border: 1px solid rgba(200,132,154,0.35);
+  color: var(--rose-light); padding: 5px 14px; border-radius: 50px;
+  font-size: 0.72rem; font-weight: 600; letter-spacing: 1.5px;
+  text-transform: uppercase; margin-bottom: 14px;
+}
+.mp-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.6rem; font-weight: 900; line-height: 1.05;
+  color: var(--cream); margin-bottom: 12px;
+}
+.mp-title em { color: var(--rose); font-style: italic; }
+.mp-subtitle {
+  font-size: 0.9rem; color: rgba(251,245,240,0.62);
+  line-height: 1.65; margin-bottom: 28px;
+}
+.mp-subtitle strong { color: var(--rose-light); font-weight: 600; }
+
+/* form */
+.mp-input-group { margin-bottom: 16px; }
+.mp-label {
+  display: block; font-size: 0.72rem; font-weight: 600;
+  letter-spacing: 1.2px; text-transform: uppercase;
+  color: rgba(251,245,240,0.5); margin-bottom: 7px;
+}
+.mp-input-wrap {
+  position: relative; display: flex; align-items: center;
+}
+.mp-input-icon {
+  position: absolute; left: 14px; font-size: 1rem;
+  pointer-events: none; z-index: 1;
+}
+.mp-input {
+  width: 100%; background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(200,132,154,0.2);
+  border-radius: 14px; padding: 13px 16px 13px 44px;
+  color: var(--cream); font-family: 'DM Sans', sans-serif;
+  font-size: 0.92rem; outline: none;
+  transition: border-color 0.25s, background 0.25s, box-shadow 0.25s;
+  -webkit-appearance: none;
+}
+.mp-input::placeholder { color: rgba(251,245,240,0.28); }
+.mp-input:focus {
+  border-color: rgba(200,132,154,0.6);
+  background: rgba(200,132,154,0.06);
+  box-shadow: 0 0 0 3px rgba(200,132,154,0.12);
+}
+.mp-input.mp-error { border-color: #e87070; box-shadow: 0 0 0 3px rgba(232,112,112,0.12); }
+
+.mp-select-wrap { position: relative; }
+.mp-select { cursor: pointer; padding-right: 40px; }
+.mp-select-arrow {
+  position: absolute; right: 14px; top: 50%; transform: translateY(-50%);
+  color: var(--rose-light); pointer-events: none; font-size: 0.85rem;
+}
+.mp-select option { background: #2C1E28; color: var(--cream); }
+
+/* CTA button */
+.mp-btn {
+  width: 100%; background: linear-gradient(135deg, var(--rose) 0%, var(--lavender) 100%);
+  color: white; border: none; border-radius: 50px;
+  padding: 16px 28px; font-family: 'DM Sans', sans-serif;
+  font-size: 1rem; font-weight: 700; cursor: pointer;
+  display: flex; align-items: center; justify-content: center; gap: 10px;
+  margin-top: 8px;
+  transition: transform 0.2s, box-shadow 0.2s, opacity 0.2s;
+  box-shadow: 0 8px 30px rgba(200,132,154,0.4);
+}
+.mp-btn:hover { transform: translateY(-2px); box-shadow: 0 14px 40px rgba(200,132,154,0.5); }
+.mp-btn:active { transform: translateY(0); }
+.mp-btn-icon { font-size: 1.1rem; transition: transform 0.2s; }
+.mp-btn:hover .mp-btn-icon { transform: translateX(4px); }
+
+.mp-btn-outline {
+  background: transparent;
+  border: 1.5px solid rgba(200,132,154,0.5);
+  color: var(--rose-light);
+  box-shadow: none;
+  margin-top: 0;
+}
+.mp-btn-outline:hover { background: rgba(200,132,154,0.1); box-shadow: none; }
+
+.mp-legal {
+  text-align: center; font-size: 0.72rem;
+  color: rgba(251,245,240,0.3); margin-top: 14px;
+}
+
+/* success state */
+.mp-success {
+  display: none; text-align: center; padding: 20px 0 8px;
+}
+.mp-success-icon { font-size: 3.5rem; margin-bottom: 16px; animation: mpBounce 0.6s ease both; }
+.mp-success-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.8rem; font-weight: 900; color: var(--rose-light);
+  margin-bottom: 12px;
+}
+.mp-success-msg { color: rgba(251,245,240,0.65); font-size: 0.93rem; line-height: 1.65; margin-bottom: 28px; }
+
+/* ── ANIMATIONS ── */
+@keyframes mpFadeIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes mpFadeOut { from { opacity: 1; } to { opacity: 0; } }
+@keyframes mpSlideUp {
+  from { opacity: 0; transform: translateY(40px) scale(0.96); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+@keyframes mpFloat {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  33% { transform: translateY(-8px) rotate(8deg); }
+  66% { transform: translateY(-4px) rotate(-5deg); }
+}
+@keyframes mpBounce {
+  0% { transform: scale(0.3); opacity: 0; }
+  60% { transform: scale(1.15); }
+  80% { transform: scale(0.95); }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+/* responsive */
+@media (max-width: 520px) {
+  .mp-popup { padding: 36px 24px 30px; border-radius: 20px; }
+  .mp-title { font-size: 2rem; }
+}
+</style>
+
+<script>
+  // Video toggle play/pause
+  function toggleVideo(wrap) {
+    const video = wrap.querySelector('video');
+    if (video.paused) {
+      // Pause all others first
+      document.querySelectorAll('.port-video-wrap video').forEach(v => {
+        if (v !== video) { v.pause(); v.closest('.port-video-wrap').classList.remove('playing'); }
+      });
+      video.play();
+      wrap.classList.add('playing');
+    } else {
+      video.pause();
+      wrap.classList.remove('playing');
+    }
+  }
+
+  // Scroll reveal
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  // ── MOTHERS DAY POPUP ──
+  function closePopup() {
+    const overlay = document.getElementById('mothers-popup-overlay');
+    overlay.classList.add('mp-hidden');
+    setTimeout(() => overlay.style.display = 'none', 400);
+  }
+
+  function validatePhone() {
+    const phone = document.getElementById('mp-phone').value.trim();
+    if (!phone) {
+      document.getElementById('mp-phone').classList.add('mp-error');
+      return false;
+    }
+    document.getElementById('mp-phone').classList.remove('mp-error');
+    return true;
+  }
+
+  // Input remove error on type
+  document.querySelectorAll('.mp-input').forEach(input => {
+    input.addEventListener('input', () => input.classList.remove('mp-error'));
+  });
+
+  // Auto-show popup after 1.8s
+  setTimeout(() => {
+    document.getElementById('mothers-popup-overlay').style.display = 'flex';
+  }, 1800);
+  // Start hidden; show via timeout
+  document.getElementById('mothers-popup-overlay').style.display = 'none';
+
+  // Nav shrink on scroll
+  const nav = document.querySelector('nav');
+  window.addEventListener('scroll', () => {
+    nav.style.background = window.scrollY > 60
+      ? 'rgba(26,18,24,0.97)'
+      : 'linear-gradient(to bottom, rgba(26,18,24,0.95), transparent)';
+  });
+</script>
+</body>
+</html>
